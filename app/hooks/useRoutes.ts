@@ -9,9 +9,6 @@ import useConversation from "./useConversation";
 
 const useRoutes = () => {
     const pathname = usePathname()
-    const {
-        conversationId
-    } = useConversation()
 
     const routes = useMemo(() => [
         {
@@ -32,7 +29,7 @@ const useRoutes = () => {
             icon: HiArrowLeftOnRectangle,
             onClick: () => signOut()
         }
-    ], [pathname, conversationId])
+    ], [pathname])
 
     return routes
 }
