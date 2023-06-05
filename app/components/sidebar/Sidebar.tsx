@@ -16,7 +16,7 @@ async function Sidebar({
             <DesktopSidebar currentUser={currentUser} />
             <MobileFooter />
             <main
-                className="lg pl-20 h-full"
+                className="lg:pl-20 h-full"
             >
                 {
                     children

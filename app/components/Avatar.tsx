@@ -1,6 +1,7 @@
 "use client"
 import { User } from "@prisma/client"
 import Image from "next/image"
+import useActiveList from "../hooks/useActiveList"
 
 interface AvatarProps {
     user: User | null
@@ -9,6 +10,10 @@ interface AvatarProps {
 const Avatar = ({
     user
 }: AvatarProps) => {
+    const { members } = useActiveList();
+    console.log({ members })
+
+    const isActive = members.includes(user?.email!)
     return (
         <div
             className="relative flex items-center"
@@ -25,8 +30,9 @@ const Avatar = ({
             ">
                 <Image src={user?.image || '/images/placeholder.png'} alt="Avatar" fill />
             </div>
-            <span
-                className="
+            {
+                isActive && <span
+                    className="
                     absolute
                     block
                     rounded-full
@@ -40,7 +46,8 @@ const Avatar = ({
                     md:h-3
                     md:w-3
                 "
-            />
+                />
+            }
         </div>
     )
 }

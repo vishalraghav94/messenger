@@ -18,7 +18,7 @@ const useRoutes = () => {
             label: 'Chat',
             href: '/conversations',
             icon: HiChat,
-            active: pathname === '/conversations'
+            active: pathname?.includes('/conversations')
         },
         {
             label: 'Users',
@@ -28,7 +28,7 @@ const useRoutes = () => {
         },
         {
             label: 'Logout',
-            href: '#',
+            href: '/#',
             icon: HiArrowLeftOnRectangle,
             onClick: () => signOut()
         }
