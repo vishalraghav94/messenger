@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const withPwa = require('next-pwa')
+const nextConfig = withPwa({
     experimental: {
         appDir: true,
         swcPlugins: [
@@ -9,7 +10,12 @@ const nextConfig = {
     },
     images: {
         domains: ['lh3.googleusercontent.com', 'res.cloudinary.com', 'avatars.githubusercontent.com']
+    },
+    pwa: {
+        dest: "public",
+        register: true,
+        skipWaiting: true,
     }
-}
+})
 
 module.exports = nextConfig
