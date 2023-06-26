@@ -1,4 +1,5 @@
 import ActiveStatus from './components/ActiveStatus'
+import Head from 'next/head'
 import AuthContext from './context/AuthContext'
 import ToasterContext from './context/ToasterContext'
 import './globals.css'
@@ -9,6 +10,14 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata = {
   title: 'Messenger',
   description: 'Messenger built with Next.js',
+  icons: {
+    shortcut: ['/favicon.ico'],
+    apple: [
+      { url: '/apple-touch-icon.png' },
+    ],
+  },
+  manifest: '/manifest.json',
+  themeColor: 'rgb(2,132,299)'
 }
 
 export default function RootLayout({
@@ -18,7 +27,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
+      <Head>
         <meta charSet="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
@@ -27,8 +36,8 @@ export default function RootLayout({
         <title>Messenger</title>
         <link rel="manifest" href="/manifest.json" />
         <link rel="shortcut icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/apple-icon.png"></link>
-      </head>
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png"></link>
+      </Head>
       <body className={inter.className}>
         <AuthContext>
           <ToasterContext />
