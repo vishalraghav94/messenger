@@ -1,5 +1,9 @@
 /** @type {import('next').NextConfig} */
-const withPwa = require('next-pwa')
+const withPwa = require('next-pwa')({
+    dest: "public",
+    register: true,
+    skipWaiting: true,
+})
 const nextConfig = withPwa({
     experimental: {
         appDir: true,
@@ -11,11 +15,7 @@ const nextConfig = withPwa({
     images: {
         domains: ['lh3.googleusercontent.com', 'res.cloudinary.com', 'avatars.githubusercontent.com']
     },
-    pwa: {
-        dest: "public",
-        register: true,
-        skipWaiting: true,
-    }
+    
 })
 
 module.exports = nextConfig
